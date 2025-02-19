@@ -1,4 +1,5 @@
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 import {useContext, useEffect, useState} from "react";
 import {ProductsContext} from "./ProductsContext";
 

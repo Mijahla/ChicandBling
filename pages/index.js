@@ -4,6 +4,8 @@ import {initMongoose} from "../lib/mongoose";
 import {findAllProducts} from "./api/products";
 import Footer from "../components/Footer";
 import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
+import Slider from "../components/Slider";
 
 export default function Home({products}) {
   const [phrase,setPhrase] = useState('');
@@ -16,8 +18,9 @@ export default function Home({products}) {
 
   return (
     <Layout>
-      <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Search for products..." className="bg-gray-200 w-full py-2 px-4 rounded-xl"/>
+      <Navbar phrase={phrase} setPhrase={setPhrase}/>           
       <div>
+        <Slider/>
         {categoriesNames.map(categoryName => (
           <div key={categoryName}>
             {products.find(p => p.category === categoryName) && (
